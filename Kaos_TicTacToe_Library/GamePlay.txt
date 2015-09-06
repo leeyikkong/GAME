@@ -1,0 +1,24 @@
+﻿Leiknum er startað
+Beðið um nafn á player 1
+Beðið um nafn á player 2
+While (true)
+	Búinn til nýr leikur með playerunum		new TicTacToe(player1, player2);
+	Teikna upp borðið (tómt)				DrawGameBoard();
+	while (Winner = nobody)
+	   biðja um play frá player 1			GetPlayerInput(_player1);
+	   Teikna upp borðið					DrawGameBoard();
+	   biðja um play frá player 2			GetPlayerInput(_player2);
+	   Teikna upp borðið					DrawGameBoard();
+	   ef (plays >= 5)
+		  ef (leikurinn er unninn)			CheckForWinner();
+			 tilkynna sigurvegara			AnnounceWinner(User);
+			 ef (!spila aftur?)				AskForAnotherPlay();
+				break;
+
+ITicTacToe:
+	public DrawGameBoard();
+	public GetPlayerInput(User, reitur);	// Fær hvaða reit á að gera frá notanda og kallar í PlayAction();
+	private PlayAction(User, reitur);		// Athugar hvort að reitur sé laus og framkvæmir playið ef það hann er laus
+	public CheckForWinner();				// Athugar hvort að það sé sigurvegari, tilkynnir sigurvegara eða lætur leik halda áfram
+	private AnnounceWinner(User);			// Tilkynnir sigurvegara
+	public AskForAnotherPlay();				// Athugar hvort það eigi að spila aftur
